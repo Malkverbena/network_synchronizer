@@ -128,6 +128,11 @@ bool has(const std::vector<V> &p_vec, const T &p_val) {
 	return std::find(p_vec.begin(), p_vec.end(), p_val) != p_vec.end();
 }
 
+template <class V>
+bool is_valid_index(const std::vector<V> &p_vec, std::size_t p_index) {
+	return p_index < p_vec.size();
+}
+
 template <class V, typename T>
 bool insert_unique(std::vector<V> &r_vec, const T &p_val) {
 	if (!has(r_vec, p_val)) {
