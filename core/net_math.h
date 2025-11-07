@@ -2,6 +2,7 @@
 
 #include "core.h"
 #include <cmath>
+#include <random>
 
 NS_NAMESPACE_BEGIN
 class MathFunc {
@@ -311,6 +312,14 @@ public:
 
 		out_sin = s;
 		out_cos = c;
+	}
+
+	template <typename T>
+	static float random_range(T min, T max) {
+		static std::random_device rd; // Non-deterministic seed
+		static std::mt19937 gen(rd()); // Mersenne Twister engine
+		std::uniform_real_distribution<T> dist(min, max);
+		return dist(gen);
 	}
 };
 
